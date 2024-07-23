@@ -1,0 +1,161 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+    transition: background-color 0.3s;
+}
+
+:root {
+    --background-color: #381cd8;
+    --button-background: #4fd0da;
+    --button-color: #ffffff;
+    --button-back: #364ed6;
+    --operator-button-background: #0d52d3;
+    --operator-button-color: #ffffff;;
+    --display-background: #ffffff;
+    --display-color: #000000;
+    --special-button-background: rgb(51, 121, 211);
+    --special-button-color: #ffffff;
+}
+
+.dark-theme {
+    --background-color: #181818;
+    --button-background: black;
+    --button-color: #ffffff;
+    --button-back: #303030;
+    --operator-button-background: #ff8c00;
+    --operator-button-color: #ffffff;
+    --display-background: #303030;
+    --display-color: #ffffff;
+    --special-button-background: rgb(172, 171, 171);
+    --special-button-color: #ffffff;
+}
+
+h1{
+    color: var(--display-color);
+}
+
+.calculator {
+    width: 300px;
+    background-color: var(--button-background);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.calculator h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--button-color);
+}
+
+.theme-toggle {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.display {
+    background-color: var(--display-background);
+    color: var(--display-color);
+    padding: 20px;
+    text-align: right;
+    font-size: 2em;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.operation {
+    font-size: 0.6em;
+    color: var(--display-color);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    background-color: var(--button-back);
+    color: var(--button-color);
+    border: none;
+    padding: 20px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+button.operator {
+    background-color: var(--operator-button-background);
+    color: var(--operator-button-color);
+}
+
+button.special {
+    background-color: var(--special-button-background);
+    color: var(--special-button-color);
+}
+
+button:active {
+    background-color: var(--button-color);
+    color: var(--button-background);
+}
+
+button.operator:active {
+    background-color: var(--operator-button-color);
+    color: var(--operator-button-background);
+}
+
+.zero {
+    grid-column: span 2;
+}
